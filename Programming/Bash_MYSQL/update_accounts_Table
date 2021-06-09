@@ -1,0 +1,31 @@
+mysql -u root -pshr4l1f3 -e "USE Test;
+select ID as 'User Name', email as 'Email', FName as 'First Name', LName as 'Last Name', age as 'Age', language as 'Language' from accounts;"
+
+echo please enter the user name that is to be changed
+read oldUser_Name
+
+echo what is the new User name
+read newUser_Name
+
+echo what is the new email
+read email
+
+echo what is the new age
+read age
+
+echo what is the new language
+read language
+
+echo what is the new first name 
+read FName
+
+echo what is the new last name
+read LName
+
+mysql -u root -pshr4l1f3 -e "USE Test; 
+update accounts
+set ID = '$newUser_Name', email = '$email', age = '$age', language = '$language', FName = '$FName', LName = '$LName'
+where ID = '$oldUser_Name';
+
+"
+
